@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'FrontEndController@index')->name('index');
+Route::get('/product/{id}', 'FrontEndController@singleProduct')->name('single.product');
 
 Auth::routes();
 
