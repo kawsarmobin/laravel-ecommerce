@@ -16,6 +16,8 @@ Route::get('/product/{id}', 'FrontEndController@singleProduct')->name('single.pr
 Route::post('/cart/add', 'ShoppingController@addToCart')->name('cart.add');
 Route::get('/cart', 'ShoppingController@cart')->name('cart');
 Route::get('/cart/delete/{id}', 'ShoppingController@cartDestroy')->name('cart.delete');
+Route::get('/cart/increase/{id}/{qty}', 'ShoppingController@increase')->name('cart.increase');
+Route::get('/cart/decrease/{id}/{qty}', 'ShoppingController@decrease')->name('cart.decrease');
 
 Auth::routes();
 
