@@ -18,6 +18,8 @@ Route::get('/cart', 'ShoppingController@cart')->name('cart');
 Route::get('/cart/delete/{id}', 'ShoppingController@cartDestroy')->name('cart.delete');
 Route::get('/cart/increase/{id}/{qty}', 'ShoppingController@increase')->name('cart.increase');
 Route::get('/cart/decrease/{id}/{qty}', 'ShoppingController@decrease')->name('cart.decrease');
+Route::get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd')->name('rapid.add');
+Route::get('/cart/checkout', 'CheckoutController@index')->name('cart.checkout');
 
 Auth::routes();
 

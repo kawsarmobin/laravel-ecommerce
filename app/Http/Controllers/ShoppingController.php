@@ -48,4 +48,22 @@ class ShoppingController extends Controller
         Cart::update($id, $qty - 1);
         return redirect()->back();
     }
+
+    public function rapidAdd($id)
+    {
+        $pdt = Product::findOrFail($id);
+
+        // First we'll add the item to the cart.
+        $cartItem = Cart::add([
+            'id' => $pdt->id,
+            'name' => $pdt->name,
+            'qty' => 1,
+            'price' => $pdt->price,
+        ]);
+
+        // Next we associate a model with the item.
+        Cart::associate($cartItem->rowId, 'App\Models\Product');
+
+        return redirect()->route('cart');
+    }
 }
